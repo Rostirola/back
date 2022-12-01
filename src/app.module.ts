@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TarefaController } from './tarefa.controller';
-import { Tarefa } from './tarefa.entity';
-import { TarefaService } from './tarefa.service';
+import { ListaController } from './lista.controller';
+import { Lista } from './lista.entity';
+import { ListaService } from './lista.service';
 
 @Module({
   imports: [
@@ -14,15 +14,15 @@ import { TarefaService } from './tarefa.service';
       port: 5432,
       username: 'postgres',
       password: 'senha',
-      database: 'tarefa',
+      database: 'lista',
       entities: [
-        Tarefa // entidades/classes
+        Lista // entidades/classes
       ],
       synchronize: true
     }),
-    TypeOrmModule.forFeature([Tarefa])
+    TypeOrmModule.forFeature([Lista])
   ],
-  controllers: [AppController, TarefaController],
-  providers: [AppService, TarefaService],
+  controllers: [AppController, ListaController],
+  providers: [AppService, ListaService],
 })
 export class AppModule {}
